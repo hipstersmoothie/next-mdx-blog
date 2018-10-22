@@ -1,3 +1,5 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import Head from 'next/head';
 import dayjs from 'dayjs';
 
@@ -31,7 +33,12 @@ const BlogPost = ({ children, post }) => (
           </div>
           <h1 className="title blogTitle">{post.title}</h1>
           <p className="subtitle is-6 blogSubtitle">
-            <a target="_blank" to={post.authorLink} href={post.authorLink}>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              to={post.authorLink}
+              href={post.authorLink}
+            >
               {post.author}
             </a>
             <span> on {dayjs(post.publishDate).format('MMMM D, YYYY')}</span>
@@ -41,47 +48,54 @@ const BlogPost = ({ children, post }) => (
       <div className="blogBody">{children}</div>
     </div>
 
-    <style jsx>{`
-      .authorImage {
-        border: 3px solid #ccc;
-        border-radius: 50%;
-        height: 60px;
-        left: 50%;
-        margin-left: -30px;
-        position: absolute !important;
-        top: -30px;
-        width: 60px;
-      }
-      .blogPost {
-        margin: auto auto 65px;
-        max-width: 800px;
-        width: 100%;
-        margin-top: 100px;
-      }
-      .blogTitle {
-        margin-top: 0 !important;
-        font-size: 2rem;
-        font-weight: lighter;
-        line-height: 2;
-      }
-      .blogSubtitle {
-        color: #909aa0;
-        margin-bottom: 2rem;
-      }
-      .blogHeader {
-        margin-top: 2.5rem;
-      }
-      .blogBody {
-        line-height: 1.4;
-        margin: 0 1rem;
-      }
-      @media screen and (min-width: 769px) {
-        .blogBody {
-          margin: 0 4rem;
+    <style jsx>
+      {`
+        .authorImage {
+          border: 3px solid #ccc;
+          border-radius: 50%;
+          height: 60px;
+          left: 50%;
+          margin-left: -30px;
+          position: absolute !important;
+          top: -30px;
+          width: 60px;
         }
-      }
-    `}</style>
+        .blogPost {
+          margin: auto auto 65px;
+          max-width: 800px;
+          width: 100%;
+          margin-top: 100px;
+        }
+        .blogTitle {
+          margin-top: 0 !important;
+          font-size: 2rem;
+          font-weight: lighter;
+          line-height: 2;
+        }
+        .blogSubtitle {
+          color: #909aa0;
+          margin-bottom: 2rem;
+        }
+        .blogHeader {
+          margin-top: 2.5rem;
+        }
+        .blogBody {
+          line-height: 1.4;
+          margin: 0 1rem;
+        }
+        @media screen and (min-width: 769px) {
+          .blogBody {
+            margin: 0 4rem;
+          }
+        }
+      `}
+    </style>
   </article>
 );
+
+BlogPost.propTypes = {
+  children: PropTypes.node.isRequired,
+  post: PropTypes.object.isRequired
+};
 
 export default BlogPost;

@@ -53,10 +53,11 @@ function generateRSS(posts) {
   const siteUrl = 'https://hipstersmoothie.com';
   const feed = new RSS({
     title: "Andrew Lisowski's blog",
+    // eslint-disable-next-line camelcase
     site_url: siteUrl
   });
 
-  posts.map(post => {
+  posts.forEact(post => {
     feed.item({
       title: post.title,
       guid: post.urlPath,
@@ -68,7 +69,7 @@ function generateRSS(posts) {
   return feed.xml({ indent: true });
 }
 
-module.exports = async function generateBlog(options) {
+module.exports = async function(options) {
   const postPaths = await glob('pages/**/*.mdx');
   const now = new Date();
 

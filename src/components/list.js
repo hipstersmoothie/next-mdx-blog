@@ -16,7 +16,7 @@ const StubList = withRouter(({ posts, perPage = POSTS_PER_PAGE, router }) => {
         {posts
           .slice((currentPage - 1) * perPage, currentPage * perPage)
           .map((post, i) => (
-            <BlogStub key={i} post={post} prefetch={i < 3} />
+            <BlogStub key={`${post.filePath}`} post={post} prefetch={i < 3} />
           ))}
       </div>
 
@@ -38,7 +38,7 @@ const StubList = withRouter(({ posts, perPage = POSTS_PER_PAGE, router }) => {
           )}
           <ul className="pagination-list">
             {posts.slice(0, pages).map((post, index) => (
-              <li key={`${post.urlPath}-${index}`}>
+              <li key={post.urlPath}>
                 <Link href={`/blog?page=${index + 1}`}>
                   <a
                     className={`pagination-link ${(currentPage === index + 1 ||
@@ -55,27 +55,29 @@ const StubList = withRouter(({ posts, perPage = POSTS_PER_PAGE, router }) => {
         </nav>
       </div>
 
-      <style jsx>{`
-        .pagination-container {
-          max-width: 1000px;
-          margin: 4rem auto;
-        }
-        .pagination-container ul {
-          list-style: none;
-        }
-        .postList {
-          margin: 1.5rem;
-        }
-        .bottomFade {
-          width: 800px;
-          height: 200px;
-          z-index: 99;
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          background: url(/static/bottom-fade.png) bottom left;
-        }
-      `}</style>
+      <style jsx>
+        {`
+          .pagination-container {
+            max-width: 1000px;
+            margin: 4rem auto;
+          }
+          .pagination-container ul {
+            list-style: none;
+          }
+          .postList {
+            margin: 1.5rem;
+          }
+          .bottomFade {
+            width: 800px;
+            height: 200px;
+            z-index: 99;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: url(/static/bottom-fade.png) bottom left;
+          }
+        `}
+      </style>
     </div>
   );
 });
