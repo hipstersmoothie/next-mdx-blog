@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Head from 'next/head';
 import Link from 'next/link';
 
 import dayjs from 'dayjs';
@@ -35,9 +34,6 @@ class BlogStub extends Component {
 
     return (
       <article className="card blogPost">
-        <Head>
-          <title>{post.title}</title>
-        </Head>
         <div className="card-content">
           <div className="media blogHeader">
             <div className="media-content has-text-centered">
