@@ -1,6 +1,10 @@
 const generateBlog = require('./generate-blog-index');
 
 class BlogIndexPlugin {
+  constructor(options) {
+    this.options = options;
+  }
+
   getChangedFiles(compiler) {
     const { watchFileSystem } = compiler;
     const watcher = watchFileSystem.watcher || watchFileSystem.wfs.watcher;
@@ -11,7 +15,7 @@ class BlogIndexPlugin {
   apply(compiler) {
     // Set up blog index at start
     compiler.hooks.environment.tap('MyPlugin', () => {
-      generateBlog();
+      generateBlog(this.options);
     });
 
     // Re generate blog index when MDX files change
@@ -19,7 +23,7 @@ class BlogIndexPlugin {
       const changedFile = this.getChangedFiles(compiler);
 
       if (changedFile.find(file => file.includes('.mdx'))) {
-        generateBlog();
+        generateBlog(this.options);
       }
     });
   }
@@ -34,7 +38,7 @@ module.exports = (pluginOptions = {}) => (nextConfig = {}) => {
         );
       }
 
-      config.plugins.push(new BlogIndexPlugin());
+      config.plugins.push(new BlogIndexPlugin(pluginOptions));
 
       if (typeof nextConfig.webpack === 'function') {
         return nextConfig.webpack(config, options);

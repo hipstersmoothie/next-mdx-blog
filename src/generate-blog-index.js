@@ -68,12 +68,19 @@ function generateRSS(posts) {
   return feed.xml({ indent: true });
 }
 
-module.exports = async function generateBlog() {
+module.exports = async function generateBlog(options) {
   const postPaths = await glob('pages/**/*.mdx');
   const now = new Date();
 
   const posts = postPaths
     .map(readPostMetadata)
+    .map(post => {
+      post.author = post.author || options.author;
+      post.authorLink = post.authorLink || options.authorLink;
+      post.avatar = post.avatar || options.avatar;
+
+      return post;
+    })
     .filter(post => post.publishDate <= now)
     .sort((a, b) => b.publishDate - a.publishDate);
 
