@@ -5,12 +5,21 @@
 Features:
 
 - MDX Blog
+- RSS Feed
 - Simple Setup
-- Customizable
+- Customizable Rendering
 
-## Blog Post Format
+## Install
 
-A post has a `meta` header. The rest of the blog post is MDX.
+```
+yarn add next-blog
+```
+
+## Usage
+
+### Blog Post Format
+
+A post has a `meta` header. The rest of the blog post is MDX. Anything in the `meta` header will be stored.
 
 ```mdx
 export const meta = {
@@ -20,8 +29,6 @@ export const meta = {
 
 # Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
 ```
-
-## Usage
 
 ### Next Plugin
 
@@ -41,11 +48,11 @@ module.exports = withPlugins([withMDX, withBlog], {
 });
 ```
 
-Now you `next` website will generate a `posts.js` with all the metadata about the posts in your project that you can use to build your blog. Anything stored in the `meta` header can be found here.
+Now you `next` website will generate a `posts.js` with all the metadata about the posts in your project. You can use to build your blog. Anything stored in the `meta` header can be found here.
 
 ### Components
 
-`next-blog` comes with default `list` and `post` components to build your blog with.
+`next-blog` comes with default `list` and `post` components to build your blog with. You do not need to use these components, they are sensible defaults.,
 
 #### List
 
