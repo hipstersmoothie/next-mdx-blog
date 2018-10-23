@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import dayjs from 'dayjs';
 
-const PostBody = ({ children, post, title }) => (
-  <article className="card blogPost">
+const PostBody = ({ children, post, title, className }) => (
+  <article className={`card blogPost ${className}`}>
     <div className="card-content">
       <div className="media blogHeader">
         <div className="media-content has-text-centered">
@@ -90,8 +90,13 @@ const PostBody = ({ children, post, title }) => (
 );
 
 PostBody.propTypes = {
+  className: PropTypes.string,
   children: PropTypes.node.isRequired,
   post: PropTypes.object.isRequired
+};
+
+PostBody.defaultProps = {
+  className: ''
 };
 
 export default PostBody;
