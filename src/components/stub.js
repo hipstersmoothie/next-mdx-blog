@@ -36,7 +36,7 @@ class BlogStub extends Component {
       <PostBody
         post={post}
         title={
-          <Link href={post.urlPath} prefetch={prefetch}>
+          <Link href={post.urlPath}>
             <a>{post.title}</a>
           </Link>
         }
