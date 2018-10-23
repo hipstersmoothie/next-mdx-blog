@@ -57,7 +57,7 @@ function generateRSS(posts) {
     site_url: siteUrl
   });
 
-  posts.forEact(post => {
+  posts.forEach(post => {
     feed.item({
       title: post.title,
       guid: post.urlPath,
