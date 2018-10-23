@@ -75,6 +75,11 @@ jobs:
           command: |
             mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
       - run:
+          name: 'Make sure we can commit to github'
+          command: |
+            npm config set _auth $NPM_TOKEN
+
+      - run:
           name: Release
           command: yarn release
 
