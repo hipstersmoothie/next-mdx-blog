@@ -77,7 +77,6 @@ jobs:
 
       - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/next-mdx-blog/.npmrc
       - run: npm whoami
-      - run: npm adduser
 
       - run:
           name: Release
