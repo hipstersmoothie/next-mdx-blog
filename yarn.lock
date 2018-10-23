@@ -1421,8 +1421,8 @@ babel-core@^6.0.0, babel-core@^6.26.0:
 
 babel-eslint@^10.0.1:
   version "10.0.1"
-  resolved "https://registry.npmjs.intuit.com:443/artifactory/api/npm/npm-intuit/babel-eslint/-/babel-eslint-10.0.1.tgz#919681dc099614cd7d31d45c8908695092a1faed"
-  integrity sha1-kZaB3AmWFM19MdRciQhpUJKh+u0=
+  resolved "https://registry.yarnpkg.com/babel-eslint/-/babel-eslint-10.0.1.tgz#919681dc099614cd7d31d45c8908695092a1faed"
+  integrity sha512-z7OT1iNV+TjOwHNLLyJk+HN+YVWX+CLE6fPD2SymJZOZQBs+QIexFjhm4keGTm8MW9xr4EC9Q0PbaLB24V5GoQ==
   dependencies:
     "@babel/code-frame" "^7.0.0"
     "@babel/parser" "^7.0.0"
@@ -3036,7 +3036,7 @@ eslint-plugin-unicorn@^6.0.1:
 
 eslint-scope@3.7.1:
   version "3.7.1"
-  resolved "https://registry.npmjs.intuit.com:443/artifactory/api/npm/npm-intuit/eslint-scope/-/eslint-scope-3.7.1.tgz#3d63c3edfda02e06e01a452ad88caacc7cdcb6e8"
+  resolved "https://registry.yarnpkg.com/eslint-scope/-/eslint-scope-3.7.1.tgz#3d63c3edfda02e06e01a452ad88caacc7cdcb6e8"
   integrity sha1-PWPD7f2gLgbgGkUq2IyqzHzctug=
   dependencies:
     esrecurse "^4.1.0"
