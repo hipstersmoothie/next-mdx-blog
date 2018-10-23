@@ -7,13 +7,11 @@ import PostBody from './post-body';
 class BlogStub extends Component {
   static propTypes = {
     foldHeight: PropTypes.number,
-    post: PropTypes.object.isRequired,
-    prefetch: PropTypes.bool
+    post: PropTypes.object.isRequired
   };
 
   static defaultProps = {
-    foldHeight: 200,
-    prefetch: false
+    foldHeight: 200
   };
 
   state = {
@@ -36,12 +34,13 @@ class BlogStub extends Component {
       this.container.offsetHeight > this.props.foldHeight &&
       !this.state.fade
     ) {
+      // eslint-disable-next-line react/no-did-update-set-state
       this.setState({ fade: true });
     }
   }
 
   render() {
-    const { post, prefetch } = this.props;
+    const { post } = this.props;
     const { BlogPost } = this.state;
 
     return (
@@ -53,7 +52,12 @@ class BlogStub extends Component {
           </Link>
         }
       >
-        <div className="preview" ref={el => (this.container = el)}>
+        <div
+          ref={el => {
+            this.container = el;
+          }}
+          className="preview"
+        >
           {BlogPost && <BlogPost />}
           {this.state.fade && (
             <div>

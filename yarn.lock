@@ -1820,6 +1820,13 @@ builtin-status-codes@^3.0.0:
   resolved "https://registry.yarnpkg.com/builtin-status-codes/-/builtin-status-codes-3.0.0.tgz#85982878e21b98e1c66425e03d0174788f569ee8"
   integrity sha1-hZgoeOIbmOHGZCXgPQF0eI9Wnug=
 
+bulma-pagination-react@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/bulma-pagination-react/-/bulma-pagination-react-0.0.3.tgz#48316370e6555845216c8169b398d815b2ecfbba"
+  integrity sha512-yy14yD7g04c3XSHBWThCNin3qiHeDuZINxJNV5w7tKKBSXd1mQYYVDh4hsZq0NndCGwzElLRWZf/dYLBe71/pA==
+  dependencies:
+    prop-types "^15.6.2"
+
 cacache@^10.0.4:
   version "10.0.4"
   resolved "https://registry.yarnpkg.com/cacache/-/cacache-10.0.4.tgz#6452367999eff9d4188aefd9a14e9d7c6a263460"

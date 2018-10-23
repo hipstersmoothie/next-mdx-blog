@@ -1,8 +1,8 @@
 import React from 'react';
 import Router, { withRouter } from 'next/router';
+import Pagination from 'bulma-pagination-react';
 
 import BlogStub from './stub';
-import Pagination from 'bulma-pagination-react';
 
 const POSTS_PER_PAGE = 10;
 
@@ -18,8 +18,8 @@ const StubList = withRouter(
             .slice((currentPage - 1) * perPage, currentPage * perPage)
             .map((post, i) => (
               <BlogStub
-                foldHeight={foldHeight}
                 key={`${post.filePath}`}
+                foldHeight={foldHeight}
                 post={post}
                 prefetch={i < 3}
               />
