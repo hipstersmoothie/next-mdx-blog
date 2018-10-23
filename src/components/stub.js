@@ -6,16 +6,17 @@ import PostBody from './post-body';
 
 class BlogStub extends Component {
   static propTypes = {
-    post: PropTypes.object.isRequired,
-    prefetch: PropTypes.bool
+    foldHeight: PropTypes.number,
+    post: PropTypes.object.isRequired
   };
 
   static defaultProps = {
-    prefetch: false
+    foldHeight: 200
   };
 
   state = {
-    BlogPost: null
+    BlogPost: null,
+    fade: false
   };
 
   async componentDidMount() {
@@ -28,8 +29,18 @@ class BlogStub extends Component {
     }
   }
 
+  componentDidUpdate() {
+    if (
+      this.container.offsetHeight > this.props.foldHeight &&
+      !this.state.fade
+    ) {
+      // eslint-disable-next-line react/no-did-update-set-state
+      this.setState({ fade: true });
+    }
+  }
+
   render() {
-    const { post, prefetch } = this.props;
+    const { post } = this.props;
     const { BlogPost } = this.state;
 
     return (
@@ -41,13 +52,21 @@ class BlogStub extends Component {
           </Link>
         }
       >
-        <div className="preview">
+        <div
+          ref={el => {
+            this.container = el;
+          }}
+          className="preview"
+        >
           {BlogPost && <BlogPost />}
-          <div className="bottomFade" />
-
-          <Link href={post.urlPath} prefetch={prefetch}>
-            <a className="readMore">Read More</a>
-          </Link>
+          {this.state.fade && (
+            <div>
+              <div className="bottomFade" />
+              <Link href={post.urlPath}>
+                <a className="readMore">Read More</a>
+              </Link>
+            </div>
+          )}
         </div>
         <style jsx>
           {`

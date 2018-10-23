@@ -91,6 +91,7 @@ const PostBody = ({ children, post, title, className }) => (
 
 PostBody.propTypes = {
   className: PropTypes.string,
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
   children: PropTypes.node.isRequired,
   post: PropTypes.object.isRequired
 };
