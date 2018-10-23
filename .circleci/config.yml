@@ -78,7 +78,7 @@ jobs:
       - run:
           name: Authenticate with registry
           command: |
-            npm config set _auth $NPM_TOKEN
+            npm config set _auth $NPM_TOKEN && cat ~/.npmrc
 
       - run:
           name: Release
