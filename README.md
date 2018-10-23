@@ -1,4 +1,9 @@
-# next-blog
+<div align="center">
+  <img width="200" height="200"
+    src="https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-11/256/notebook.png">
+  <h1>next-blog</h1>
+  <p>Easy blog for next.js</p>
+</div
 
 `next-blog` enables you to easily add a blog to any `next.js` based project.
 
