@@ -9,7 +9,7 @@
     "email": "lisowski54@gmail.com"
   },
   "scripts": {
-    "build": "babel src -d dist",
+    "build": "babel src -d dist --ignore '**/*.test.js'",
     "test": "jest",
     "lint": "xo",
     "prerelease": "npm run build",
@@ -27,7 +27,9 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/runtime": "^7.1.2",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
     "eslint": "^5.7.0",
     "eslint-config-prettier": "^3.1.0",
     "eslint-config-xo-react": "^0.17.0",
@@ -76,7 +78,10 @@
       "**/*.{js,jsx}",
       "!**/node_modules/**",
       "!**/vendor/**"
-    ]
+    ],
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
   },
   "xo": {
     "parser": "babel-eslint",

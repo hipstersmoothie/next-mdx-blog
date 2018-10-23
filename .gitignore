@@ -1,4 +1,4 @@
 node_modules/
-./coverage
+coverage
 dist
 yarn-error.log
