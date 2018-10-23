@@ -76,6 +76,8 @@ jobs:
             mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
 
       - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/next-mdx-blog/.npmrc
+      - run: npm whoami
+      - run: npm adduser
 
       - run:
           name: Release
