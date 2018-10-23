@@ -61,7 +61,7 @@ Now you `next` website will generate a `posts.js` with all the metadata about th
 
 #### List
 
-A list of blog posts. Each post displays a small preview of it's content. You must dynamically require the blog posts to get the previews working.
+A list of blog posts. Each post displays a small preview of it's content. You must dynamically require the blog posts to get the previews working. This component should be used to display the blog index.
 
 ```js
 import React from 'react';
@@ -88,7 +88,7 @@ export default () => (
 
 #### Post
 
-A full blog post.. To get your blog content to render inside the blog posts component your must either
+A full blog post. To get your blog content to render inside the blog posts component your must either
 
 1. Modify `_app.js` to render blog content inside appropriate wrapper
 

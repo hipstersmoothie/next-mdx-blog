@@ -70,6 +70,10 @@ jobs:
       - attach_workspace:
           at: ~/next-blog
       - run:
+          name: 'Make sure we can commit to github'
+          command: |
+            mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
+      - run:
           name: Release
           command: yarn release
 
