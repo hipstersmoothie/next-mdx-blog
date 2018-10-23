@@ -1,7 +1,7 @@
 version: 2
 
 defaults: &defaults
-  working_directory: ~/next-blog
+  working_directory: ~/next-mdx-blog
   docker:
     - image: circleci/node:latest-browsers
 
@@ -14,17 +14,17 @@ jobs:
           keys:
             # Find a cache corresponding to this specific package.json checksum
             # when this file is changed, this key will fail
-            - next-blog-{{ .Branch }}-{{ checksum "yarn.lock" }}-{{ checksum ".circleci/config.yml" }}
-            - next-blog-{{ .Branch }}-{{ checksum "yarn.lock" }}
-            - next-blog-{{ .Branch }}
+            - next-mdx-blog-{{ .Branch }}-{{ checksum "yarn.lock" }}-{{ checksum ".circleci/config.yml" }}
+            - next-mdx-blog-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - next-mdx-blog-{{ .Branch }}
             # Find the most recent cache used from any branch
-            - next-blog-master
-            - next-blog-
+            - next-mdx-blog-master
+            - next-mdx-blog-
       - run:
           name: Install Dependencies
           command: yarn install --frozen-lockfile
       - save_cache:
-          key: next-blog-{{ .Branch }}-{{ checksum "yarn.lock" }}-{{ checksum ".circleci/config.yml" }}
+          key: next-mdx-blog-{{ .Branch }}-{{ checksum "yarn.lock" }}-{{ checksum ".circleci/config.yml" }}
           paths:
             - node_modules
             - ~/.cache/yarn
@@ -37,7 +37,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: ~/next-blog
+          at: ~/next-mdx-blog
       - run:
           name: Lint
           command: yarn lint
@@ -46,7 +46,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: ~/next-blog
+          at: ~/next-mdx-blog
       - run:
           name: Test
           command: yarn test
@@ -55,7 +55,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: ~/next-blog
+          at: ~/next-mdx-blog
       - run:
           name: Build
           command: yarn build
@@ -68,7 +68,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: ~/next-blog
+          at: ~/next-mdx-blog
 
       - run:
           name: 'Make sure we can commit to github'

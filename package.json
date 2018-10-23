@@ -1,7 +1,7 @@
 {
-  "name": "next-blog",
   "version": "0.0.6",
-  "description": "next-blog",
+  "name": "next-mdx-blog",
+  "description": "next-mdx-blog",
   "main": "dist/index.js",
   "source": "src/index.js",
   "author": {

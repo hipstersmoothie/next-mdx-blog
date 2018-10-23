@@ -1,11 +1,11 @@
 <div align="center">
   <img width="200" height="200"
     src="https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-11/256/notebook.png">
-  <h1>next-blog</h1>
+  <h1>next-mdx-blog</h1>
   <p>Easy blog for next.js</p>
 </div
 
-`next-blog` enables you to easily add a blog to any `next.js` based project.
+`next-mdx-blog` enables you to easily add a blog to any `next.js` based project.
 
 Features:
 
@@ -17,7 +17,7 @@ Features:
 ## Install
 
 ```
-yarn add next-blog
+yarn add next-mdx-blog
 ```
 
 ## Usage
@@ -37,7 +37,7 @@ export const meta = {
 
 ### Next Plugin
 
-To get you blog index to build you must the the `next-blog` next build plugin. You must also add `@zeit/next-mdx` to parse your blog posts.
+To get you blog index to build you must the the `next-mdx-blog` next build plugin. You must also add `@zeit/next-mdx` to parse your blog posts.
 
 Make sure to include `mdx` in your `pageExtensions`.
 
@@ -45,7 +45,7 @@ Make sure to include `mdx` in your `pageExtensions`.
 const withPlugins = require('next-compose-plugins');
 
 // Generates Blog Index
-const withBlog = require('next-blog').Plugin();
+const withBlog = require('next-mdx-blog').Plugin();
 const withMDX = require('@zeit/next-mdx')();
 
 module.exports = withPlugins([withMDX, withBlog], {
@@ -57,7 +57,7 @@ Now you `next` website will generate a `posts.js` with all the metadata about th
 
 ### Components
 
-`next-blog` comes with default `list` and `post` components to build your blog with. You do not need to use these components, they are sensible defaults.,
+`next-mdx-blog` comes with default `list` and `post` components to build your blog with. You do not need to use these components, they are sensible defaults.,
 
 #### List
 
@@ -66,7 +66,7 @@ A list of blog posts. Each post displays a small preview of it's content. You mu
 ```js
 import React from 'react';
 import Head from 'next/head';
-import BlogIndex from 'next-blog/dist/components/list';
+import BlogIndex from 'next-mdx-blog/dist/components/list';
 
 import posts from '../posts';
 
@@ -96,7 +96,7 @@ A full blog post. To get your blog content to render inside the blog posts compo
 import React from 'react';
 import App, { Container } from 'next/app';
 import Layout from '../components/layout';
-import BlogPost from 'next-blog/dist/components/post';
+import BlogPost from 'next-mdx-blog/dist/components/post';
 import posts from '../posts';
 
 // Override the App class to put layout component around the page contents
@@ -132,7 +132,7 @@ export const meta = {
   title: 'First Post',
 }
 
-import Post from 'next-blog/dist/components/post'
+import Post from 'next-mdx-blog/dist/components/post'
 
 <Post post={{
   publishDate: '2018-05-10T12:00:00Z',
