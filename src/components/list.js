@@ -1,9 +1,8 @@
 import React from 'react';
-import Link from 'next/link';
 import Router, { withRouter } from 'next/router';
 
 import BlogStub from './stub';
-import Pagination from './pagination';
+import Pagination from 'bulma-pagination-react';
 
 const POSTS_PER_PAGE = 10;
 
@@ -22,8 +21,7 @@ const StubList = withRouter(({ posts, perPage = POSTS_PER_PAGE, router }) => {
       </div>
 
       <Pagination
-        pages={100}
-        className="container"
+        pages={pages}
         currentPage={currentPage}
         onChange={page => Router.push(`/blog?page=${page}`)}
       />
