@@ -5,6 +5,8 @@
   <p>Easy blog for next.js</p>
 </div
 
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=for-the-badge)](https://github.com/prettier/prettier) [![CircleCI](https://img.shields.io/circleci/project/github/hipstersmoothie/next-mdx-blog/master.svg?style=for-the-badge)](https://circleci.com/gh/hipstersmoothie/next-mdx-blog) [![npm](https://img.shields.io/npm/v/next-mdx-blog.svg?style=for-the-badge)](https://www.npmjs.com/package/next-mdx-blog) [![npm](https://img.shields.io/npm/dt/next-mdx-blog.svg?style=for-the-badge)](https://www.npmjs.com/package/next-mdx-blog)
+
 `next-mdx-blog` enables you to easily add a blog to any `next.js` based project.
 
 Features:
