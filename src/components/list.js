@@ -1,8 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
-import { withRouter } from 'next/router';
+import Router, { withRouter } from 'next/router';
 
 import BlogStub from './stub';
+import Pagination from './pagination';
 
 const POSTS_PER_PAGE = 10;
 
@@ -20,61 +21,21 @@ const StubList = withRouter(({ posts, perPage = POSTS_PER_PAGE, router }) => {
           ))}
       </div>
 
-      <div className="container pagination-container">
-        <nav
-          className="pagination is-small"
-          role="navigation"
-          aria-label="pagination"
-        >
-          {currentPage !== 1 && (
-            <Link href={`/blog?page=${currentPage - 1}`}>
-              <a className="pagination-previous">Previous</a>
-            </Link>
-          )}
-          {currentPage !== pages && (
-            <Link href={`/blog?page=${currentPage + 1}`}>
-              <a className="pagination-previous">Next page</a>
-            </Link>
-          )}
-          <ul className="pagination-list">
-            {posts.slice(0, pages).map((post, index) => (
-              <li key={post.urlPath}>
-                <Link href={`/blog?page=${index + 1}`}>
-                  <a
-                    className={`pagination-link ${(currentPage === index + 1 ||
-                      (index === 0 && !currentPage)) &&
-                      'is-current'}`}
-                    aria-label={`Goto page ${index + 1}`}
-                  >
-                    {index + 1}
-                  </a>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </div>
+      <Pagination
+        pages={100}
+        className="container"
+        currentPage={currentPage}
+        onChange={page => Router.push(`/blog?page=${page}`)}
+      />
 
       <style jsx>
         {`
-          .pagination-container {
-            max-width: 1000px;
-            margin: 4rem auto;
-          }
-          .pagination-container ul {
-            list-style: none;
-          }
           .postList {
             margin: 1.5rem;
           }
-          .bottomFade {
-            width: 800px;
-            height: 200px;
-            z-index: 99;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            background: url(/static/bottom-fade.png) bottom left;
+          .postList :global(ul) {
+            margin-left: 0;
+            margin-top: 0;
           }
         `}
       </style>
