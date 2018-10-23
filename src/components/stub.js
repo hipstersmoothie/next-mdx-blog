@@ -58,7 +58,7 @@ class BlogStub extends Component {
           {this.state.fade && (
             <div>
               <div className="bottomFade" />
-              <Link href={post.urlPath} prefetch={prefetch}>
+              <Link href={post.urlPath}>
                 <a className="readMore">Read More</a>
               </Link>
             </div>
