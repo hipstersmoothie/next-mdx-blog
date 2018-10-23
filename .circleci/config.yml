@@ -80,7 +80,7 @@ jobs:
 
       - run:
           name: Release
-          command: yarn release
+          command: npm run release
 
 workflows:
   version: 2
