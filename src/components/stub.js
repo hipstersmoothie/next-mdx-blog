@@ -6,16 +6,19 @@ import PostBody from './post-body';
 
 class BlogStub extends Component {
   static propTypes = {
+    foldHeight: PropTypes.number,
     post: PropTypes.object.isRequired,
     prefetch: PropTypes.bool
   };
 
   static defaultProps = {
+    foldHeight: 200,
     prefetch: false
   };
 
   state = {
-    BlogPost: null
+    BlogPost: null,
+    fade: false
   };
 
   async componentDidMount() {
@@ -25,6 +28,15 @@ class BlogStub extends Component {
       });
     } catch (error) {
       console.log(error);
+    }
+  }
+
+  componentDidUpdate() {
+    if (
+      this.container.offsetHeight > this.props.foldHeight &&
+      !this.state.fade
+    ) {
+      this.setState({ fade: true });
     }
   }
 
@@ -41,13 +53,16 @@ class BlogStub extends Component {
           </Link>
         }
       >
-        <div className="preview">
+        <div className="preview" ref={el => (this.container = el)}>
           {BlogPost && <BlogPost />}
-          <div className="bottomFade" />
-
-          <Link href={post.urlPath} prefetch={prefetch}>
-            <a className="readMore">Read More</a>
-          </Link>
+          {this.state.fade && (
+            <div>
+              <div className="bottomFade" />
+              <Link href={post.urlPath} prefetch={prefetch}>
+                <a className="readMore">Read More</a>
+              </Link>
+            </div>
+          )}
         </div>
         <style jsx>
           {`
