@@ -78,11 +78,6 @@ jobs:
       - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
 
       - run:
-          name: Authenticate with registry
-          command: |
-            npm config set _auth $NPM_TOKEN && cat ~/.npmrc
-
-      - run:
           name: Release
           command: yarn release
 
