@@ -8,6 +8,9 @@
     "name": "Andrew Lisowski",
     "email": "lisowski54@gmail.com"
   },
+  "files": [
+    "dist/"
+  ],
   "scripts": {
     "build": "babel src -d dist --ignore '**/*.test.js'",
     "test": "jest",
