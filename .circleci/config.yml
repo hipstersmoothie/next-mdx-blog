@@ -71,6 +71,11 @@ jobs:
           at: ~/next-mdx-blog
 
       - run:
+          name: 'Make sure we can commit to github'
+          command: |
+            mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
+
+      - run:
           name: Authenticate with registry
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
 
