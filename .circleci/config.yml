@@ -69,6 +69,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/next-blog
+
       - run:
           name: 'Make sure we can commit to github'
           command: |
