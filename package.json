@@ -108,6 +108,7 @@
     "startVersion": "0.0.0",
     "majorLabel": "Version: Major",
     "minorLabel": "Version: Minor",
-    "patchLabel": "Version: Patch"
+    "patchLabel": "Version: Patch",
+    "internalLabel": "internal"
   }
 }
