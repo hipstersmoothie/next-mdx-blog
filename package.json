@@ -11,6 +11,10 @@
   "files": [
     "dist/"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hipstersmoothie/next-mdx-blog"
+  },
   "scripts": {
     "build": "babel src -d dist --ignore '**/*.test.js'",
     "test": "jest",
