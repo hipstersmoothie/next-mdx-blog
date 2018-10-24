@@ -37,6 +37,7 @@ const StubList = withRouter(
         <Pagination
           pages={pages}
           currentPage={currentPage}
+          className="container"
           onChange={page => Router.push(`/blog?page=${page}`)}
         />
 
@@ -44,6 +45,9 @@ const StubList = withRouter(
           {`
             .postList {
               margin: 1.5rem;
+            }
+            :global(.pagination-container) {
+              margin: 6rem auto;
             }
           `}
         </style>
