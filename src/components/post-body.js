@@ -79,7 +79,7 @@ const PostBody = ({ children, post, title, className }) => (
         }
         .blogBody {
           line-height: 1.4;
-          margin: 0 1rem;
+          margin: 0 1rem 2rem;
         }
         @media screen and (min-width: 769px) {
           .blogBody {
