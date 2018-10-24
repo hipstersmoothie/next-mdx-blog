@@ -7,7 +7,14 @@ import BlogStub from './stub';
 const POSTS_PER_PAGE = 10;
 
 const StubList = withRouter(
-  ({ posts, perPage = POSTS_PER_PAGE, router, className, foldHeight }) => {
+  ({
+    posts,
+    perPage = POSTS_PER_PAGE,
+    router,
+    className,
+    stubClassName,
+    foldHeight
+  }) => {
     const pages = Math.ceil(posts.length / perPage);
     const currentPage = Number(router.query.page || 1);
 
@@ -19,6 +26,7 @@ const StubList = withRouter(
             .map((post, i) => (
               <BlogStub
                 key={`${post.filePath}`}
+                className={stubClassName}
                 foldHeight={foldHeight}
                 post={post}
                 prefetch={i < 3}

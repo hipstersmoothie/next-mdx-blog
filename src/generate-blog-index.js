@@ -79,6 +79,7 @@ module.exports = async function(options) {
       post.author = post.author || options.author;
       post.authorLink = post.authorLink || options.authorLink;
       post.avatar = post.avatar || options.avatar;
+      post.urlPath = path.join(options.assetPrefix || '/', post.urlPath);
 
       return post;
     })
