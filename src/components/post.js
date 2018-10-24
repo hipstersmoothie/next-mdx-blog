@@ -12,11 +12,13 @@ const BlogPost = ({ children, post, className }) => (
 
     {children}
 
-    <style jsx>{`
-      :global(.blogPost.full-blog-post) {
-        width: 90%;
-      }
-    `}</style>
+    <style jsx>
+      {`
+        :global(.blogPost.full-blog-post) {
+          width: 90%;
+        }
+      `}
+    </style>
   </PostBody>
 );
 
