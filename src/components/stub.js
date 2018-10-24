@@ -6,11 +6,13 @@ import PostBody from './post-body';
 
 class BlogStub extends Component {
   static propTypes = {
+    className: PropTypes.string,
     foldHeight: PropTypes.number,
     post: PropTypes.object.isRequired
   };
 
   static defaultProps = {
+    className: '',
     foldHeight: 200
   };
 
@@ -56,7 +58,7 @@ class BlogStub extends Component {
           ref={el => {
             this.container = el;
           }}
-          className="preview"
+          className={`preview ${this.props.className}`}
         >
           {BlogPost && <BlogPost />}
           {this.state.fade && (
