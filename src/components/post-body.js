@@ -63,10 +63,12 @@ const PostBody = ({ children, post, title, className }) => (
           margin-top: 100px;
         }
         .blogTitle {
-          margin-top: 0 !important;
+          margin-top: 1rem !important;
+          margin-bottom: 2.5rem;
           font-size: 2rem;
           font-weight: lighter;
           line-height: 2;
+          line-height: 2.5rem;
         }
         .blogSubtitle {
           color: #909aa0;
@@ -81,7 +83,7 @@ const PostBody = ({ children, post, title, className }) => (
         }
         @media screen and (min-width: 769px) {
           .blogBody {
-            margin: 0 4rem;
+            margin: 0 4rem 4rem;
           }
         }
       `}

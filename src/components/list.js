@@ -45,10 +45,6 @@ const StubList = withRouter(
             .postList {
               margin: 1.5rem;
             }
-            .postList :global(ul) {
-              margin-left: 0;
-              margin-top: 0;
-            }
           `}
         </style>
       </div>
