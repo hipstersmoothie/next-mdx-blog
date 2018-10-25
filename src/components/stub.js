@@ -45,6 +45,7 @@ class BlogStub extends Component {
 
     return (
       <PostBody
+        className="stubPost"
         post={post}
         title={
           <Link href={post.urlPath}>
@@ -92,6 +93,9 @@ class BlogStub extends Component {
             .preview {
               max-height: 525px;
               overflow: hidden;
+            }
+            :global(.stubPost .blogBody) {
+              margin-bottom: 0 !important;
             }
           `}
         </style>
