@@ -15,18 +15,7 @@ const PostBody = ({ children, post, title, className }) => (
               position: 'relative',
               backgroundImage: `url('${post.avatar}')`
             }}
-          >
-            <svg
-              width="80"
-              height="80"
-              style={{
-                width: '100%',
-                height: 'auto',
-                maxWidth: '100%',
-                marginBottom: -4
-              }}
-            />
-          </div>
+          />
           <h1 className="title blogTitle">{title || post.title}</h1>
           <p className="subtitle is-6 blogSubtitle">
             <a

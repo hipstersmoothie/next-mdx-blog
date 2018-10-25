@@ -41,7 +41,7 @@ class BlogStub extends Component {
 
   render() {
     const { post } = this.props;
-    const BlogPost = this.state.BlogPost || post.BlogPost;
+    const BlogPost = post.BlogPost || this.state.BlogPost;
 
     return (
       <PostBody
