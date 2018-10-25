@@ -88,6 +88,15 @@ const withBlog = require('next-mdx-blog')({
 
 `next-mdx-blog` comes with default `list` and `post` components to build your blog with. You do not need to use these components, they are sensible defaults.
 
+To get these to work you should also include `bulma` in your head somehow
+
+```html
+<link
+  rel="stylesheet"
+  href="https://jenil.github.io/bulmaswatch/default/bulmaswatch.min.css"
+/>
+```
+
 #### Usage with next.js
 
 To use the components with next.js you have to flush the styles. This is a bug in styled-jsx component package + next.js. To remedy this manually flush the styles:
