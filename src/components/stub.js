@@ -22,16 +22,14 @@ class BlogStub extends Component {
   };
 
   async componentDidMount() {
-    try {
-      this.setState({
-        BlogPost: (await this.props.post.file).default
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  }
+    if (!this.props.post.BlogPost) {
+      const file = await this.props.post.file;
 
-  componentDidUpdate() {
+      this.setState({
+        BlogPost: file.default
+      });
+    }
+
     if (
       this.container.offsetHeight > this.props.foldHeight &&
       !this.state.fade
@@ -43,10 +41,11 @@ class BlogStub extends Component {
 
   render() {
     const { post } = this.props;
-    const { BlogPost } = this.state;
+    const BlogPost = post.BlogPost || this.state.BlogPost;
 
     return (
       <PostBody
+        className="stubPost"
         post={post}
         title={
           <Link href={post.urlPath}>
@@ -94,6 +93,9 @@ class BlogStub extends Component {
             .preview {
               max-height: 525px;
               overflow: hidden;
+            }
+            :global(.stubPost .blogBody) {
+              margin-bottom: 0 !important;
             }
           `}
         </style>
