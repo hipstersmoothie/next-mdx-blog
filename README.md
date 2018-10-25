@@ -84,7 +84,27 @@ const withBlog = require('next-mdx-blog')({
 
 ### Components
 
-`next-mdx-blog` comes with default `list` and `post` components to build your blog with. You do not need to use these components, they are sensible defaults.,
+`next-mdx-blog` comes with default `list` and `post` components to build your blog with. You do not need to use these components, they are sensible defaults.
+
+#### Usage with next.js
+
+To use the components with next.js you have to flush the styles. This is a bug in styled-jsx component package + next.js. To remedy this manually flush the styles:
+
+```js
+import React from 'react';
+import Document, { Head, Main, NextScript } from 'next/document';
+import flush from 'styled-jsx/server';
+import flushBlog from 'next-mdx-blog/dist/components/flush';
+
+export default class MyDocument extends Document {
+  static getInitialProps({ renderPage }) {
+    const { html, head, errorHtml, chunks } = renderPage();
+    return { html, head, errorHtml, chunks, styles: [flush(), flushBlog()] };
+  }
+
+  render() {}
+}
+```
 
 #### List
 
