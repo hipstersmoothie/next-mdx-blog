@@ -22,16 +22,14 @@ class BlogStub extends Component {
   };
 
   async componentDidMount() {
-    try {
-      this.setState({
-        BlogPost: (await this.props.post.file).default
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  }
+    if (!this.props.post.BlogPost) {
+      const file = await this.props.post.file;
 
-  componentDidUpdate() {
+      this.setState({
+        BlogPost: file.default
+      });
+    }
+
     if (
       this.container.offsetHeight > this.props.foldHeight &&
       !this.state.fade
@@ -43,7 +41,7 @@ class BlogStub extends Component {
 
   render() {
     const { post } = this.props;
-    const { BlogPost } = this.state;
+    const BlogPost = this.state.BlogPost || post.BlogPost;
 
     return (
       <PostBody
