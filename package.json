@@ -48,6 +48,9 @@
     "prettier": "^1.14.3",
     "xo": "^0.23.0"
   },
+  "peerDepedencies": {
+    "styled-jsx": "3.1.0"
+  },
   "dependencies": {
     "@mdx-js/mdx": "^0.15.5",
     "bulma-pagination-react": "^0.0.3",
@@ -57,7 +60,8 @@
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
-    "rss": "^1.2.2"
+    "rss": "^1.2.2",
+    "styled-jsx": "^3.1.0"
   },
   "prettier": {
     "singleQuote": true
