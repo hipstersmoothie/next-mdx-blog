@@ -52,7 +52,7 @@ Make sure to include `mdx` in your `pageExtensions`.
 const withPlugins = require('next-compose-plugins');
 
 // Generates Blog Index
-const withBlog = require('next-mdx-blog')();
+const withBlog = require('next-mdx-blog');
 const withMDX = require('@zeit/next-mdx')();
 
 module.exports = withPlugins([withMDX, withBlog], {
@@ -67,10 +67,14 @@ Now you `next` website will generate a `posts.js` with all the metadata about th
 You can add a global author by passing a configuration objecting into `next-mdx-blog`.
 
 ```js
-const withBlog = require('next-mdx-blog')({
+const withBlog = require('next-mdx-blog');
+const withMDX = require('@zeit/next-mdx')();
+
+module.exports = withPlugins([withMDX, withBlog], {
   author: 'Andrew Lisowski',
   authorLink: 'https://github.intuit.com/alisowski',
-  avatar: 'https://avatars2.githubusercontent.com/u/1192452?s=400&v=4'
+  avatar: 'https://avatars2.githubusercontent.com/u/1192452?s=400&v=4',
+  pageExtensions: ['js', 'mdx']
 });
 ```
 
@@ -79,8 +83,12 @@ const withBlog = require('next-mdx-blog')({
 If you website is being served out of something other than the root domain you might need to add a prefix to your urls. Such as is the case with github pages.
 
 ```js
-const withBlog = require('next-mdx-blog')({
-  assetPrefix: 'my-github-project'
+const withBlog = require('next-mdx-blog');
+const withMDX = require('@zeit/next-mdx')();
+
+module.exports = withPlugins([withMDX, withBlog], {
+  assetPrefix: 'my-github-project',
+  pageExtensions: ['js', 'mdx']
 });
 ```
 

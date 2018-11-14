@@ -29,7 +29,7 @@ class BlogIndexPlugin {
   }
 }
 
-module.exports = (pluginOptions = {}) => (nextConfig = {}) => {
+module.exports = (nextConfig = {}) => {
   return Object.assign({}, nextConfig, {
     webpack(config, options) {
       if (!options.defaultLoaders) {
@@ -38,7 +38,7 @@ module.exports = (pluginOptions = {}) => (nextConfig = {}) => {
         );
       }
 
-      config.plugins.push(new BlogIndexPlugin(pluginOptions));
+      config.plugins.push(new BlogIndexPlugin(nextConfig));
 
       if (typeof nextConfig.webpack === 'function') {
         return nextConfig.webpack(config, options);
