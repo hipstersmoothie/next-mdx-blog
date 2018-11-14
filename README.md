@@ -26,6 +26,8 @@ yarn add next-mdx-blog
 
 ## Usage
 
+You can store your blog posts anywhere in the `pages` directory. But to keep things tidy I like to keep all blog posts in `pages/blog`.
+
 ### Blog Post Format
 
 A post has a `meta` header. The rest of the blog post is MDX. Anything in the `meta` header will be stored.
@@ -129,27 +131,46 @@ export default class MyDocument extends Document {
 
 A list of blog posts. Each post displays a small preview of it's content. You must dynamically require the blog posts to get the previews working. This component should be used to display the blog index.
 
+`pages/blog.js`:
+
 ```js
 import React from 'react';
 import Head from 'next/head';
+import dynamic from 'next/dynamic';
 import BlogIndex from 'next-mdx-blog/dist/components/list';
 
-import posts from '../posts';
+import postsData from '../posts';
 
-posts.forEach(async post => {
-  // Webpack Magic
+// Dynamically import some components
+postsData.forEach(post => {
   post.file = import('../pages' + post.filePath.replace('pages', ''));
 });
 
-export default () => (
+const blogPage = ({ posts = postsData }) => (
   <div className="blog-index">
     <Head>
       <title>Blog Posts</title>
     </Head>
 
-    <BlogIndex posts={posts} />
+    <BlogIndex posts={postsData} stubClassName="content" />
   </div>
 );
+
+// Before page loads await the dynamic components. prevents blog preview page flash.
+
+blogPage.getInitialProps = async () => {
+  await Promise.all(
+    postsData.map(async post => {
+      post.BlogPost = (await post.file).default;
+
+      return post;
+    })
+  );
+
+  return { posts: [...postsData] };
+};
+
+export default blogPage;
 ```
 
 ##### List Props
@@ -199,7 +220,10 @@ export default class MyApp extends App {
       <Container>
         <Layout pathname={pathname} active={active}>
           {pathname.includes('blog/') ? (
-            <BlogPost post={posts.find(post => post.urlPath === pathname)}>
+            <BlogPost
+              post={posts.find(post => post.urlPath === pathname)}
+              className="content"
+            >
               <Component {...pageProps} />
             </BlogPost>
           ) : (
