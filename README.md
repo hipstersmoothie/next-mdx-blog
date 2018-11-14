@@ -136,7 +136,6 @@ A list of blog posts. Each post displays a small preview of it's content. You mu
 ```js
 import React from 'react';
 import Head from 'next/head';
-import dynamic from 'next/dynamic';
 import BlogIndex from 'next-mdx-blog/dist/components/list';
 
 import postsData from '../posts';
@@ -152,7 +151,7 @@ const blogPage = ({ posts = postsData }) => (
       <title>Blog Posts</title>
     </Head>
 
-    <BlogIndex posts={postsData} stubClassName="content" />
+    <BlogIndex posts={posts} stubClassName="content" />
   </div>
 );
 
