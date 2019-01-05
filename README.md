@@ -10,6 +10,7 @@
 `next-mdx-blog` enables you to easily add a blog to any `next.js` based project.
 
 EXAMPLE: http://hipstersmoothie.com/blog/
+CODE: https://github.com/hipstersmoothie/hipstersmoothie
 
 Features:
 
