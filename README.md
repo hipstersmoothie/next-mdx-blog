@@ -20,7 +20,7 @@ Features:
 
 ## Install
 
-```
+```sh
 yarn add next-mdx-blog
 ```
 
@@ -46,7 +46,7 @@ export const meta = {
 
 ### Next Plugin
 
-To get you blog index to build you must the the `next-mdx-blog` next build plugin. You must also add `@zeit/next-mdx` to parse your blog posts.
+To get your blog index to build you must use the `next-mdx-blog` plugin in your `next.config.js`. You must also add `@zeit/next-mdx` to parse your blog posts.
 
 Make sure to include `mdx` in your `pageExtensions`.
 
@@ -140,7 +140,7 @@ import BlogIndex from 'next-mdx-blog/dist/components/list';
 
 import postsData from '../posts';
 
-// Dynamically import some components
+// Dynamically import the blog posts
 postsData.forEach(post => {
   post.file = import('../pages' + post.filePath.replace('pages', ''));
 });
@@ -156,7 +156,6 @@ const blogPage = ({ posts = postsData }) => (
 );
 
 // Before page loads await the dynamic components. prevents blog preview page flash.
-
 blogPage.getInitialProps = async () => {
   await Promise.all(
     postsData.map(async post => {
